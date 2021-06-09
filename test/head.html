@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Head-test</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        font-family: Geneva, Arial, Helvetica, sans-serif;
+      }
+
+      #tabs {
+        position: relative;
+        width: 100%;
+      }
+
+      #tabs .container {
+        padding: 30px;
+        display: flex;
+        justify-content: space-around;
+      }
+
+      #tabs .container > .icon {
+        color: gray;
+        display: flex;
+        align-items: center;
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      #tabs .container > .icon b {
+        color: black;
+      }
+
+      #tabs .tab {
+        color: rgb(148, 148, 148);
+        font-size: larger;
+        display: inline-block;
+        padding: 0 10px;
+        cursor: pointer;
+        position: relative;
+        z-index: 5;
+        transition: 0.5s ease;
+        vertical-align: middle;
+      }
+
+      #tabs .tab:hover {
+        color: black;
+      }
+
+      #tabs .whiteborder {
+        color: black;
+      }
+
+      #tabs .tabContent {
+        width: 100%;
+        position: relative;
+        top: -1px;
+        z-index: 1;
+        border-radius: 0 0 3px 3px;
+      }
+
+      #tabs .hide {
+        display: none;
+      }
+
+      #tabs .show {
+        display: block;
+      }
+      .container1 {
+        border-bottom: 2px solid gray;
+        margin-bottom: 10px;
+      }
+      .container1 .fon {
+        background: url("../Img/fon.jpg") center;
+        background-size: cover;
+        background-attachment: fixed;
+        height: 500px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+      }
+      .container1 .fon .text {
+        width: 300px;
+        color: white;
+        position: absolute;
+        top: 50%;
+        left: 20%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+      }
+      .container1 .fon .text b {
+        font-size: 50px;
+      }
+      .container1 .fon .text p {
+        font-size: 15px;
+        text-transform: uppercase;
+        color: black;
+        padding: 10px;
+        background-color: white;
+      }
+      .container1 .info {
+        margin: 50px 10px;
+        display: flex;
+        justify-content: space-around;
+      }
+      .container1 .info div {
+        width: 20%;
+      }
+      .container1 .info div span {
+        color: orange;
+      }
+      .container1 .info h3{
+        text-transform: uppercase;
+      }
+      .container1 .info h3 i {
+        margin-right: 10px;
+      }
+      .container1 .info p {
+        padding-top: 10px;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="tabs">
+      <div class="container">
+        <div class="icon"><b>EN</b>FOLD</div>
+        <div>
+          <div class="tab whiteborder">Home</div>
+          <div class="tab">Portfolio</div>
+          <div class="tab">Blog</div>
+          <div class="tab">Pages</div>
+          <div class="tab">Shortcodes</div>
+        </div>
+      </div>
+      <div class="tabContent">
+        <div class="container1">
+          <div class="fon">
+            <div class="text">
+              <div class="icon"><b>ENFOLD</b></div>
+              <p>our most beautiful theme ever</p>
+            </div>
+          </div>
+          <div class="info">
+            <div class="text1">
+              <h3><i class='fa fa-clock-o' style='font-size:24px'></i> a real time-saver</h3>
+              
+              <p>
+                Enfold is a powerful Theme that comes with an easy
+                <span>drag and drop admin interface.</span>Set up new sites in
+                ni time!
+              </p>
+            </div>
+            <div class="text2">
+              <h3><i class='fa fa-anchor' style='font-size:24px'></i> free updates & support</h3>
+              <p>
+                56.000 customers cant be wrong.We offer
+                <span>free lifetime support</span> and updates for all our
+                themes!
+              </p>
+            </div>
+            <div class="text3">
+              <h3><i class='fa fa-paper-plane-o' style='font-size:24px'></i> a real time-saver</h3>
+              <p>
+                Whether you have never touched a line of code or are a
+                WordPress-Ninja, this theme is built for users of
+                <span>all skill levels...</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tabContent">Текст 2</div>
+      <div class="tabContent">Текст 3</div>
+      <div class="tabContent">Текст 4</div>
+      <div class="tabContent">Текст 5</div>
+    </div>
+
+    <div class="liniya"><div class="krug"></div></div>
+
+    <script>
+      var tab;
+      var tabContent;
+
+      window.onload = function () {
+        tabContent = document.getElementsByClassName("tabContent");
+        tab = document.getElementsByClassName("tab");
+        tab[0].style.cssText = `border-left: none;`;
+        hideTabsContent(1);
+      };
+
+      function hideTabsContent(a) {
+        for (var i = a; i < tabContent.length; i++) {
+          tabContent[i].classList.remove("show");
+          tabContent[i].classList.add("hide");
+          tab[i].classList.remove("whiteborder");
+        }
+      }
+
+      document.getElementById("tabs").onclick = function (event) {
+        var target = event.target;
+        if (target.className == "tab") {
+          for (var i = 0; i < tab.length; i++) {
+            if (target == tab[i]) {
+              showTabsContent(i);
+              break;
+            }
+          }
+        }
+      };
+
+      function showTabsContent(b) {
+        if (tabContent[b].classList.contains("hide")) {
+          hideTabsContent(0);
+          tab[b].classList.add("whiteborder");
+          tabContent[b].classList.remove("hide");
+          tabContent[b].classList.add("show");
+        }
+      }
+    </script>
+  </body>
+</html>
