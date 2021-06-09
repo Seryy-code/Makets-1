@@ -11,6 +11,7 @@
         padding: 0;
         margin: 0;
         font-family: Geneva, Arial, Helvetica, sans-serif;
+        transition: .3s ease ;
       }
 
       #tabs {
@@ -28,7 +29,7 @@
         color: gray;
         display: flex;
         align-items: center;
-        font-size: 20px;
+        font-size: 30px;
         font-weight: bold;
       }
 
@@ -40,12 +41,13 @@
         color: rgb(148, 148, 148);
         font-size: larger;
         display: inline-block;
-        padding: 0 10px;
+        padding: 10px 10px;
         cursor: pointer;
         position: relative;
         z-index: 5;
         transition: 0.5s ease;
         vertical-align: middle;
+        
       }
 
       #tabs .tab:hover {
@@ -72,7 +74,7 @@
         display: block;
       }
       .container1 {
-        border-bottom: 2px solid gray;
+        border-bottom: 2px solid rgb(223, 223, 223);
         margin-bottom: 10px;
       }
       .container1 .fon {
@@ -83,6 +85,7 @@
         width: 100%;
         display: flex;
         justify-content: space-between;
+        position: relative;
       }
       .container1 .fon .text {
         width: 300px;
@@ -124,6 +127,38 @@
         padding-top: 10px;
         font-size: 12px;
       }
+      @media (max-width: 768px){
+        .container1 .fon .text{
+            margin-right: 0;
+            margin-left: 50%;
+            left: 0;
+            text-align: center;
+        }
+      }
+      @media (max-width: 425px){
+        #tabs .container{
+            padding: 5px;
+        }
+        #tabs .tab {
+            text-align: center;
+            display: block;
+            padding: 0 5px;
+            font-size: 15px;
+            border-bottom: solid 1px rgb(95, 95, 95);
+        }
+        #tabs .container > .icon {
+            font-size: 20px;
+        }
+        .container1 .info{
+            display:block;
+            width: 100%;
+            margin: 0;
+        }
+        .container1 .info .text{
+            width: 80%;
+            margin: 20px auto;
+        }
+      }
     </style>
   </head>
   <body>
@@ -147,7 +182,7 @@
             </div>
           </div>
           <div class="info">
-            <div class="text1">
+            <div class="text">
               <h3><i class='fa fa-clock-o' style='font-size:24px'></i> a real time-saver</h3>
               
               <p>
@@ -156,7 +191,7 @@
                 ni time!
               </p>
             </div>
-            <div class="text2">
+            <div class="text">
               <h3><i class='fa fa-anchor' style='font-size:24px'></i> free updates & support</h3>
               <p>
                 56.000 customers cant be wrong.We offer
@@ -164,7 +199,7 @@
                 themes!
               </p>
             </div>
-            <div class="text3">
+            <div class="text">
               <h3><i class='fa fa-paper-plane-o' style='font-size:24px'></i> a real time-saver</h3>
               <p>
                 Whether you have never touched a line of code or are a
